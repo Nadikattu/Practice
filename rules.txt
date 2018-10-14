@@ -1,0 +1,27 @@
+import sailpoint.object.*;
+import java.util.Locale;
+
+Identity owner =context.getObjectByName(Identity.class,”ravi.shah”);
+attribute.setOwner(owner);
+//make attribute requestable
+//attribute.setRequestable(true);
+String description = "RN-Application";
+// In 6.0+, use this logic to set descriptions for managed attributes
+attribute.addDescription(Locale.US.toString(), description);
+
+
+
+
+
+
+
+//build map
+
+import sailpoint.connector.DelimitedFileConnector;
+Map map = DelimitedFileConnector.defaultBuildMap(cols, record);
+
+String firstname=map.get("firstname");
+String lastname=map.get("lastname");
+String username=firstname + "."+lastname;
+map.put("username", username);
+return map;
